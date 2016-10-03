@@ -62,7 +62,7 @@ class Select extends NamedFormItem
 	{
 		$repository = new BaseRepository($this->model());
 		$key = $repository->model()->getKeyName();
-		$options = $repository->query()->get()->lists($this->display(), $key);
+		$options = $repository->query()->get()->pluck($this->display(), $key);
 		if ($options instanceof Collection)
 		{
 			$options = $options->all();
